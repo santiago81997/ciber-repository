@@ -1,0 +1,20 @@
+#! /bin/bash
+
+longitud=`wc -m $1`;
+unos=0;
+
+for i in {1..$longitud}
+do
+	bit=`cut -c $i $1`
+	if ( $i == 1 ); then
+		((unos++));
+	fi
+done;
+
+if ( $unos % 2) == 0 )
+	echo -n "1" >> bitparidad.txt
+else
+	echo -n "0" >> bitparidad.txt
+fi
+
+echo "Fin del programa";
